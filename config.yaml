@@ -1,0 +1,20 @@
+# Configuration File
+---
+# Root directory of videos
+video: "/home/ed/PhD/Genre-Classifier-Paper/data/embeddings/Action/DieHard-WithaVengeance/040/clip/clip.mp4"
+
+# Output directory for embeddings
+output: "/home/ed/PhD/TemporalCropper/output"
+
+# Probability that the transform will happen
+transform_prob: 0.1
+
+# Location of csv file output
+csv: "/database.csv"
+
+# Number of frames to skip : used as if frames % n : extract
+frames: 2
+frame_length: 5
+tidy_start: True
+
+...

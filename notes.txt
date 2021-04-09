@@ -1,0 +1,69 @@
+Database Architecture
+
+CSV FILE
+
+[Name, Genre, Year, Scene, Clip, Chunk. MP4, Images, EVideo, EImage, EAudio, ELocation, EDepth, ...]
+Database Architecture
+
+CSV FILE
+
+[Name, Genre, Year, Scene, Clip, Chunk. MP4, Images, EVideo, EImage, EAudio, ELocation, EDepth, 
+
+Pipe Line
+
+1. Read the video via opencv.
+2. Add data to the csv file
+2. Remove the first and last frames. 
+3. Save the frame.
+4. Send the frame for normalisation and processing of image model -> save to EImage
+5. Send the frame ... of location model -> save to ELocation
+6. Send the frame ... of video model -> add to numpy array
+7. Until all frames are processed. 
+8. send video numpy array to video model for processing. 
+9. Add data to CSV File entry
+10.Print debug status. 
+11.Continue. 
+
+Considerations:
+    File format of videos : mp4, wav etc
+
+Database Structure
+- THECSV!
+-Genre
+ - Name
+    - Scene
+        - Clip
+            - Clip Video
+            - Chunkn
+                - Raw images
+                - Image embeddings
+                - Video 
+                - Location embeddings
+                - Depth embeddingso emebddings
+                
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_C_COMPILER=/usr/bin/gcc-7 \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=OFF \
+-D WITH_TBB=ON \
+-D WITH_CUDA=ON \
+-D BUILD_opencv_cudacodec=OFF \
+-D ENABLE_FAST_MATH=1 \
+-D CUDA_FAST_MATH=1 \
+-D WITH_CUDNN=ON \
+-D OPENCV_DNN_CUDA=ON \
+-D CUDA_ARCH_BIN=6.1 \
+-D WITH_CUBLAS=1 \
+-D WITH_V4L=ON \
+-D WITH_QT=OFF \
+-D WITH_OPENGL=ON \
+-D WITH_GSTREAMER=ON \
+-D OPENCV_GENERATE_PKGCONFIG=ON \
+-D OPENCV_PC_FILE_NAME=opencv.pc \
+-D OPENCV_ENABLE_NONFREE=ON \
+-D OPENCV_PYTHON3_INSTALL_PATH=~/.virtual-envs/cv/lib/python3.8/site-packages \
+-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-4.2.0/modules \
+-D PYTHON_EXECUTABLE=~/.virtual-envs/cv/bin/python \
+-D BUILD_EXAMPLES=ON ..
