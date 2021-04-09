@@ -1,6 +1,11 @@
 # Spatio-Temporal Cropping Tool
 
-Collect consistent spatio-temporal crops from videos with augmentation set by probability. 
+Collect consistent spatio-temporal crops from videos with augmentation set by probability for use in contrastive learning.
+
+Papers which use contrastive learning with spatio-temporal crops include:
+
+`https://arxiv.org/abs/2008.03800`
+`https://arxiv.org/abs/2011.11261`
 
 1. Install Requirements
 
@@ -8,7 +13,7 @@ Collect consistent spatio-temporal crops from videos with augmentation set by pr
 
 Note - Open CV was compiled from source for GPU use. You may need to add your own version of opencv `pip install cv2` for the code to work. File an issue if you have problems. 
 
-2. Set paramters either in the config.yaml or via arguments. 
+2. Set parameters either in the config.yaml or via arguments. 
 
 `python main.py --help`
 
