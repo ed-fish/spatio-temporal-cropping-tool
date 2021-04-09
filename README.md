@@ -6,7 +6,7 @@ Collect consistent spatio-temporal crops from videos with augmentation set by pr
 
 `pip install -r requirements.txt`
 
-###Note - Open CV was compiled from source for GPU use. You may need to add your own version of opencv '''pip install cv2''' for the code to work. File an issue if you have problems. 
+Note - Open CV was compiled from source for GPU use. You may need to add your own version of opencv '''pip install cv2''' for the code to work. File an issue if you have problems. 
 
 2. Set paramters either in the config.yaml or via arguments. 
 
