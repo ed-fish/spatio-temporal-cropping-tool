@@ -4,8 +4,8 @@ Collect consistent spatio-temporal crops from videos with augmentation set by pr
 
 Papers which use contrastive learning with spatio-temporal crops include:
 
-`https://arxiv.org/abs/2008.03800`
-`https://arxiv.org/abs/2011.11261`
+[Spatiotemporal Contrastive Video Representation Learning](https://arxiv.org/abs/2008.03800)
+[Hierarchically Decoupled Spatial-Temporal Contrast for Self-supervised Video Representation Learning](https://arxiv.org/abs/2011.11261)
 
 1. Install Requirements
 
