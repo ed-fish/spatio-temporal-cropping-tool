@@ -1,20 +1,33 @@
-# embeddingator
-Collect Multi-Modal embeddings from video clips automatically
+# Spatio-Temporal Cropping Tool
 
-Easy to use multi-modal embedding extractor for video clips - specifically for contrastive learning strategies with multiple augmentations. 
+Collect consistent spatio-temporal crops from videos with augmentation set by probability. 
 
-Current models include:
-  - Image classification: Resnet50 (Imagenet) 1 x 2048 embedding 
-  - Location classification: Resnet50 (Places365) 1 x 2048 embedding
-  - Action recognition: Resnet18 (Kinetics400) 1 x 516 embedding
-  - Depth perception: intelISL (MiDaS)  1 x 2048 embedding
-  
-More models being added shortly. 
+1. Install Requirements
 
-Update the config.yml with your requirements before running. 
+'''pip install -r requirements.txt'''
 
-This code is setup for a specific file structure - for a project related to movies. As such you will need to adapt the code to fit your individual case. 
+####Note - Open CV was compiled from source for GPU use. You may need to add your own version of opencv '''pip install cv2''' for the code to work. File an issue if you have problems. 
 
-In the future I will be updating the code to make it more flexible, if you use the code and make it more genralised please submit a PR. 
+2. Set paramters either in the config.yaml or via arguments. 
 
-Check back in a few weeks for updates. 
+''' python main.py --help'''
+
+### Features
+
+- You can use either a directory or a single mp4 video file.
+- Select the number of frames you would like to extract as one temporal crop (referenced as a chunk in the code)
+- Select the amount of augmentation (from 0.0 to 1.0)
+- Augmentations include 
+  - random crop
+  - gaussian noise
+  - blur
+  - grayscale
+  - flip
+- Supports cv2 GPU by default (if built from source)
+- All transforms perfomed in cv2 for efficient computation
+
+
+
+
+
+

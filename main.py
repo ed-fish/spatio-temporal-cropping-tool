@@ -105,7 +105,6 @@ def main():
                         help="Set probability of transform from 0.0 to 1.0")
     parser.add_argument(
         "--frame_length", help="Set the number of frames for each crop", type=int)
-    parser.add_argument("--gpu", help="Set the gpu number - 0 by default")
 
     # Get args and set config
 
