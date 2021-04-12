@@ -2,7 +2,6 @@ import hashlib
 import random
 import cv2
 import numpy as np
-from torchvision import transforms
 
 
 class ImgTransform:
@@ -60,50 +59,4 @@ class ImgTransform:
         return img
 
 
-class Normaliser:
 
-    '''Converts images to PIL, resizes and normalises for appropriate model'''
-
-    def __init__(self, config):
-        self.config = config
-
-    def rgb(self, img):
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        return img
-
-    def norm(self, img, mean, std):
-        cv2.imwrite("testfile.png", img)
-        tensorfy = transforms.ToTensor()
-        img = tensorfy(img)
-        normarfy = transforms.Normalize(mean, std)
-        img = normarfy(img).unsqueeze(0)
-        return img
-
-    # Imagenet ResNet 50/18
-    def img_model(self, img):
-        img = self.rgb(img)
-        img = cv2.resize(img, (224, 224), interpolation=cv2.INTER_AREA)
-        img = self.norm(img, self.config["image_norm"]["mean"].get(
-        ), self.config["image_norm"]["std"].get())
-        return img
-
-    def location_model(self, img):
-        img = self.rgb(img)
-        img = cv2.resize(img, (224, 224), interpolation=cv2.INTER_AREA)
-        img = self.norm(img, self.config["location_norm"]["mean"].get(
-        ), self.config["location_norm"]["std"].get())
-        return img
-
-    def video_model(self, img):
-        img = self.rgb(img)
-        img = cv2.resize(img, (112, 112), interpolation=cv2.INTER_AREA)
-        img = self.norm(img, self.config["video_norm"]["mean"].get(
-        ), self.config["video_norm"]["std"].get())
-        return img
-
-    def depth_model(self, img):
-        img = self.rgb(img)
-        img = cv2.resize(img, (384, 384), interpolation=cv2.INTER_AREA)
-        img = self.norm(img, self.config["depth_norm"]["mean"].get(
-        ), self.config["depth_norm"]["std"].get())
-        return img
