@@ -1,4 +1,4 @@
-# Spatio-Temporal Cropping Tool
+## Spatio-Temporal Cropping Tool
 
 Collect consistent spatio-temporal crops from videos with augmentation set by probability for use in contrastive learning.
 
